@@ -1,72 +1,72 @@
-<div class="login-container bg-light">
-  <div class="login-box">
-    <h1 translate>APP_NAME</h1>
-    <div>
-      <h6 class="d-inline-block">v{{ version }}</h6>
-      <div class="d-inline-block ml-3">
-        <app-language-selector></app-language-selector>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card col-md-6 mt-3 mx-auto">
-        <div class="card-body">
-          <h4 class="card-title text-center">
-            <i class="far fa-3x fa-user-circle text-muted"></i>
-          </h4>
-          <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-            <div class="alert alert-danger" [hidden]="!error || isLoading" translate>
-              Username or password incorrect.
-            </div>
-            <div class="form-group">
-              <label class="d-block">
-                <input
-                  type="text"
-                  class="form-control"
-                  formControlName="username"
-                  autocomplete="username"
-                  [placeholder]="'Username' | translate"
-                />
-                <span hidden translate>Username</span>
-                <small
-                  [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
-                  class="text-danger"
-                  translate
-                >
-                  Username is required
-                </small>
-              </label>
-              <label class="d-block">
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                  autocomplete="current-password"
-                  [placeholder]="'Password' | translate"
-                  required
-                />
-                <span hidden translate>Password</span>
-                <small
-                  [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
-                  class="text-danger"
-                  translate
-                >
-                  Password is required
-                </small>
-              </label>
-              <div class="form-check">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" formControlName="remember" />
-                  <span translate>Remember me</span>
-                </label>
-              </div>
-            </div>
-            <button class="btn btn-primary w-100" type="submit" [disabled]="loginForm.invalid || isLoading">
-              <i class="fas fa-cog fa-spin" [hidden]="!isLoading"></i>
-              <span translate>Login</span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+<main class="login">
+  <div class="login__column">
+    <img src="assets/phone.png" alt="Phone Image" title="Phone Image" class="login__phone-image" />
   </div>
-</div>
+  <section class="login__column">
+    <div class="login__section login__sign-in">
+      <img src="assets/logo.png" alt="Logo" title="Logo" class="login__logo" />
+      <!-- x   -->
+      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate class="login__form">
+        <div class="login__input-container">
+          <input
+            type="text"
+            name="username"
+            pformControlName="username"
+            autocomplete="username"
+            [placeholder]="'Username'"
+            required
+            class="login__input"
+          />
+          <small
+            [hidden]="loginForm.controls.username.valid || loginForm.controls.username.untouched"
+            class="text-danger"
+            translate
+          >
+            Username is required
+          </small>
+        </div>
+        <div class="login__input-container">
+          <input
+            type="password"
+            name="password"
+            formControlName="password"
+            autocomplete="current-password"
+            [placeholder]="'Password' | translate"
+            class="login__input"
+          />
+          <small
+            [hidden]="loginForm.controls.password.valid || loginForm.controls.password.untouched"
+            class="text-danger"
+            translate
+          >
+            Password is required
+          </small>
+        </div>
+        <div class="login__input-container">
+          <input type="submit" value="Log in" class="login__input login__input--btn" />
+        </div>
+      </form>
+      <span class="login__divider">or</span>
+      <a class="login__fb-link" href="#">
+        <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i> Log in with Facebook
+      </a>
+    </div>
+    <div class="login__section login__sign-up">
+      <span class="login__text">
+        Don't have an account?
+        <a href="#" class="login__link">
+          Sign up
+        </a>
+      </span>
+    </div>
+    <div class="login__section login__section--transparent login__app">
+      <span class="login__text">
+        Get the app.
+      </span>
+      <div class="login__appstores">
+        <img src="assets/ios.png" alt="iOS" title="Get the app!" class="login__appstore" />
+        <img src="assets/android.png" alt="Android" title="Get the app!" class="login__appstore" />
+      </div>
+    </div>
+  </section>
+</main>
