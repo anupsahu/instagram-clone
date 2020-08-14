@@ -139,3 +139,30 @@
 .login__appstore {
   height: 40px;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 650px) {
+  /* Login */
+  .login {
+    width: 100%;
+    margin-top: 0;
+  }
+  .login__column {
+    width: 100%;
+  }
+  .login__column:first-child {
+    display: none;
+  }
+  .login__column:last-child {
+    margin-left: 0;
+  }
+  .login__section {
+    background-color: transparent;
+    border: none;
+  }
+  .login__appstores {
+    justify-content: center;
+  }
+  .login__appstore:first-child {
+    margin-right: 20px;
+  }
+}
